@@ -1,34 +1,45 @@
-name: Test Suite
+name: CI
 
 on:
   workflow_dispatch:
-  # push:
-  # pull_request:
-
-env:
-  FOUNDRY_PROFILE: ci
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
   test:
-    name: Foundry Project
     runs-on: ubuntu-latest
+    env:
+      FOUNDRY_PROFILE: ci
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: stable
 
-      - name: Build
-        run: |
-          forge --version
-          forge build --sizes
-        id: build
+      - name: Bootstrap pinned deps
+        run: ./scripts/bootstrap.sh
 
-      - name: Test
-        run: |
-          forge test -vvv
-        id: test
+      - name: Build contracts
+        run: forge build --sizes
+
+      - name: Run tests
+        run: forge test -vvv
+
+      - name: Coverage smoke
+        run: forge coverage --report summary
+
+      - name: Frontend lockfile install
+        run: npm ci
+
+      - name: Frontend build
+        run: npm run frontend:build

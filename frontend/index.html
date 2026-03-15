@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFT Strategy Studio</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <h1>NFT Strategy Studio</h1>
+        <p>Fees -> Vault Revenue -> Deterministic NFT Accumulation</p>
+      </header>
+
+      <section class="panel">
+        <h2>Connection</h2>
+        <button id="connect">Connect Wallet</button>
+        <p id="wallet">Disconnected</p>
+      </section>
+
+      <section class="panel grid2">
+        <div>
+          <h2>Contracts</h2>
+          <label>Strategy Vault <input id="vault" placeholder="0x..." /></label>
+          <label>Asset Token <input id="asset" placeholder="0x..." /></label>
+          <label>Pool ID (bytes32) <input id="poolId" placeholder="0x..." /></label>
+          <button id="load">Load State</button>
+        </div>
+        <div>
+          <h2>State</h2>
+          <pre id="state">{}</pre>
+        </div>
+      </section>
+
+      <section class="panel grid3">
+        <div>
+          <h3>Deposit</h3>
+          <label>Assets <input id="depositAssets" value="1" /></label>
+          <button id="deposit">Deposit</button>
+        </div>
+        <div>
+          <h3>Redeem</h3>
+          <label>Shares <input id="redeemShares" value="1" /></label>
+          <button id="redeem">Redeem</button>
+        </div>
+        <div>
+          <h3>Acquire NFT</h3>
+          <label>Max Cost <input id="maxCost" value="1000000000000000000" /></label>
+          <button id="acquire">Acquire</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Activity</h2>
+        <pre id="log"></pre>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

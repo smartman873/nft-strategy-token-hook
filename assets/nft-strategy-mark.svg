@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-label="NFT Strategy">
+  <rect width="220" height="64" rx="12" fill="#0f172a"/>
+  <rect x="18" y="16" width="28" height="32" rx="5" fill="#f59e0b"/>
+  <circle cx="32" cy="28" r="5" fill="#0f172a"/>
+  <path d="M22 44l8-8 10 10" stroke="#0f172a" stroke-width="3" fill="none"/>
+  <text x="58" y="39" fill="#f8fafc" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="700">NFT STRATEGY</text>
+</svg>
