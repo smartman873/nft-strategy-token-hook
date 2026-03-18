@@ -250,6 +250,8 @@ Branches:   100.00% (37/37)
 Functions:  100.00% (39/39)
 ```
 
+![Forge coverage summary output](assets/forge-coverage-summary.png)
+
 ```bash
 # reproduce exact coverage report
 FOUNDRY_OFFLINE=true forge coverage --exclude-tests --no-match-coverage "script|test|lib" --report summary
